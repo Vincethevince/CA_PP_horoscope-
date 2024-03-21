@@ -40,7 +40,16 @@ const topicSentenceMatch = topic=>{
         return timeGenerator()+' '+ verbGenerator()+' '+moneyGenerator();
     }
     else{
-        console.log('Unknown topic chosen')
+        console.log('Unknown topic chosen');
     }
 }
 
+const outputGenerator = ()=>{
+    let output = mainMessage;
+    let topics = topicGenerator()
+    topics.forEach(topic => {
+        mainMessage+= topic+ ': ';
+        mainMessage+=topicSentenceMatch()+'\n';
+    })
+    console.log(mainMessage);
+}
