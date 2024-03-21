@@ -20,7 +20,7 @@ const verbGenerator = ()=>{
     return timeArr[ran];
 }
 
-const MoneyGenerator = ()=> {
+const moneyGenerator = ()=> {
     let ran = Math.floor(Math.random()*5);
     const sentenceArr = ['your opportunity!', 'your lucky time!','an amazing situation.','filled with possibilities!','something new!'];
     return sentenceArr[ran];
@@ -31,3 +31,16 @@ const emotionalGenerator = ()=>{
     const sentenceArr = ['it\'s okay to slow down!', 'you should take your time!','you could help others.','your loved ones may need you','you could be open for others'];
     return sentenceArr[ran];
 }
+
+const topicSentenceMatch = topic=>{
+    if (topic === 'Love' || topic ===  'Family and Friends'){
+        return timeGenerator()+' '+emotionalGenerator();
+    }
+    else if (topic === 'Money' || topic === 'Job'){
+        return timeGenerator()+' '+ verbGenerator()+' '+moneyGenerator();
+    }
+    else{
+        console.log('Unknown topic chosen')
+    }
+}
+
