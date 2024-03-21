@@ -3,8 +3,8 @@ const topicPool = ['Love','Money','Job','Family and Friends'];
 
 const topicGenerator = ()=>{
     let topicA = topicPool[Math.floor(Math.random()*4)];
-    let topicB = topicA;
-    while (topicB === topicA) topB = topicPool[Math.floor(Math.random()*4)]
+    let topicB = topicPool[Math.floor(Math.random()*4)];
+    while (topicB === topicA) topicB = topicPool[Math.floor(Math.random()*4)];
     return [topicA,topicB];
 }
 
@@ -40,7 +40,7 @@ const topicSentenceMatch = topic=>{
         return timeGenerator()+' '+ verbGenerator()+' '+moneyGenerator();
     }
     else{
-        console.log('Unknown topic chosen');
+        console.log('Unknown topic chosen'+topic);
     }
 }
 
@@ -48,8 +48,10 @@ const outputGenerator = ()=>{
     let output = mainMessage;
     let topics = topicGenerator()
     topics.forEach(topic => {
-        mainMessage+= topic+ ': ';
-        mainMessage+=topicSentenceMatch()+'\n';
+        output+= topic+ ': ';
+        output+=topicSentenceMatch(topic)+'\n';
     })
-    console.log(mainMessage);
+    console.log(output);
 }
+
+outputGenerator();
